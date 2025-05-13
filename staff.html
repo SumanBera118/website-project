@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management - Staff</title>
+    <style>
+        /* Common styles same as dashboard */
+        
+        .staff-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .staff-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .staff-photo {
+            height: 150px;
+            background-color: #e0f7e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2e7d32;
+            font-size: 50px;
+        }
+        
+        .staff-details {
+            padding: 15px;
+        }
+        
+        .staff-name {
+            margin: 0;
+            color: #2e7d32;
+        }
+        
+        .staff-position {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .staff-contact {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .staff-actions {
+            margin-top: 10px;
+            display: flex;
+        }
+        
+        .staff-actions button {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .view-btn {
+            background-color: #a5d6a7;
+            color: #1b5e20;
+        }
+        
+        .message-btn {
+            background-color: #81d4fa;
+            color: #01579b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Nav same as patients.html -->
+    
+    <div class="main-content">
+        <div class="page-header">
+            <h2>Staff Management</h2>
+            <button class="add-patient-btn" onclick="openStaffForm()">+ Add Staff Member</button>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search staff by name or department...">
+            <button>Search</button>
+        </div>
+        
+        <div class="staff-container">
+            <div class="staff-card">
+                <div class="staff-photo">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="staff-details">
+                    <h3 class="staff-name">Dr. Suhail Khan</h3>
+                    <div class="staff-position">Cardiologist</div>
+                    <div class="staff-contact">Suhail.khan@hospital.com</div>
+                    <div class="staff-contact">(555) 123-4567</div>
+                    <div class="staff-actions">
+                        <button class="view-btn">Profile</button>
+                        <button class="message-btn">Message</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-card">
+                <div class="staff-photo">
+                    <i class="fas fa-user-nurse"></i>
+                </div>
+                <div class="staff-details">
+                    <h3 class="staff-name">Nurse Dhanushree Goail</h3>
+                    <div class="staff-position">Emergency Department</div>
+                    <div class="staff-contact">Dhanushree.goail@hospital.com</div>
+                    <div class="staff-contact">(555) 987-6543</div>
+                    <div class="staff-actions">
+                        <button class="view-btn">Profile</button>
+                        <button class="message-btn">Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="staff-container">
+                <div class="staff-card">
+                    <div class="staff-photo">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6gJAU0CXjAoEUWikx5VVxxqjBt2cl7hqJltnafCh2WFNxKDJwtB_undUZnFUr4cd-ThM&usqp=CAU">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="staff-details">
+                        <h3 class="staff-name">Dr. Dilip Sharma</h3>
+                        <div class="staff-position">Nerurologist</div>
+                        <div class="staff-contact">dilip.sharma@hospital.com</div>
+                        <div class="staff-contact">8219983127</div>
+                        <div class="staff-actions">
+                            <button class="view-btn">Profile</button>
+                            <button class="message-btn">Message</button>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- More staff cards... -->
+        </div>
+    </div>
+    
+    <!-- Footer same as patients.html -->
+
+    <script>
+        // Same authentication and logout functions as patients.html
+        
+        function openStaffForm() {
+            alert('Open staff registration form');
+        }
+    </script>
+</body>
+</html>

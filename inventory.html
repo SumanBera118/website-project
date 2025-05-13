@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management - Inventory</title>
+    <style>
+        /* Common styles same as dashboard */
+        
+        .inventory-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .inventory-stat {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .inventory-stat h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+        
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .inventory-table th, .inventory-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0f7e0;
+        }
+        
+        .inventory-table th {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        .low-stock {
+            color: #c62828;
+            font-weight: bold;
+        }
+        
+        .stock-level {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stock-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #e0f7e0;
+            margin-left: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .stock-fill {
+            height: 100%;
+            background-color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Nav same as patients.html -->
+    
+    <div class="main-content">
+        <div class="page-header">
+            <h2>Inventory Management</h2>
+            <button class="add-patient-btn" onclick="openInventoryForm()">+ Add Item</button>
+        </div>
+        
+        <div class="inventory-stats">
+            <div class="inventory-stat">
+                <h3>Total Items</h3>
+                <div class="stat-value">487</div>
+            </div>
+            <div class="inventory-stat">
+                <h3>Low Stock Items</h3>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="inventory-stat">
+                <h3>Out of Stock</h3>
+                <div class="stat-value">3</div>
+            </div>
+        </div>
+        
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Stock Level</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MED1001</td>
+                    <td>Paracetamol 500mg</td>
+                    <td>Medicine</td>
+                    <td>1,250</td>
+                    <td>
+                        <div class="stock-level">
+                            <span>High</span>
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2025-05-10</td>
+                    <td>
+                        <button class="action-btn view-btn">View</button>
+                        <button class="action-btn edit-btn">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MED2045</td>
+                    <td>Bandage (Medium)</td>
+                    <td>Medical Supplies</td>
+                    <td class="low-stock">12</td>
+                    <td>
+                        <div class="stock-level">
+                            <span>Low</span>
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2025-05-12</td>
+                    <td>
+                        <button class="action-btn view-btn">View</button>
+                        <button class="action-btn edit-btn">Edit</button>
+                    </td>
+                </tr>
+                <!-- More inventory items... -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Footer same as patients.html -->
+
+    <script>
+        // Same authentication and logout functions as patients.html
+        
+        function openInventoryForm() {
+            alert('Open inventory item form');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management - Appointments</title>
+    <style>
+        /* Common styles same as dashboard */
+        
+        .calendar-view {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .calendar {
+            width: 70%;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            padding: 15px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            font-weight: bold;
+            padding: 5px;
+            background-color: #e0f7e0;
+        }
+        
+        .calendar-day {
+            height: 80px;
+            border: 1px solid #e0f7e0;
+            padding: 5px;
+            overflow-y: auto;
+        }
+        
+        .calendar-day.today {
+            background-color: #c8e6c9;
+        }
+        
+        .appointment-badge {
+            background-color: #2e7d32;
+            color: white;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-bottom: 3px;
+            cursor: pointer;
+        }
+        
+        .appointment-sidebar {
+            width: 28%;
+            margin-left: 2%;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            padding: 15px;
+        }
+        
+        .appointment-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .appointment-item {
+            padding: 10px;
+            border-bottom: 1px solid #e0f7e0;
+        }
+        
+        .appointment-item h4 {
+            margin: 0;
+            color: #2e7d32;
+        }
+        
+        .appointment-time {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Nav same as patients.html -->
+    
+    <div class="main-content">
+        <div class="page-header">
+            <h2>Appointment Management</h2>
+            <button class="add-patient-btn" onclick="openAppointmentForm()">+ Schedule Appointment</button>
+        </div>
+        
+        <div class="calendar-view">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <h3>May 2025</h3>
+                    <div>
+                        <button>Previous</button>
+                        <button>Today</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day-header">Sun</div>
+                    <div class="calendar-day-header">Mon</div>
+                    <div class="calendar-day-header">Tue</div>
+                    <div class="calendar-day-header">Wed</div>
+                    <div class="calendar-day-header">Thu</div>
+                    <div class="calendar-day-header">Fri</div>
+                    <div class="calendar-day-header">Sat</div>
+                    
+                    <!-- Calendar days would be dynamically generated -->
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2
+                        <div class="appointment-badge">Dr.Sumit Roy - 10:00 AM</div>
+                    </div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day today">8
+                        <div class="appointment-badge">Dr.Ashish Kumar - 2:30 PM</div>
+                        <div class="appointment-badge">Dr.lina Sharma - 4:15 PM</div>
+                    </div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10
+                        <div class="appointment-badge">Dr.Sumit Roy - 10:00 AM</div>
+                    </div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17
+                        <div class="appointment-badge">Dr.Sumit Roy - 10:00 AM</div>
+                    </div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day today">23
+                        <div class="appointment-badge">Dr.Ashish Kumar - 2:30 PM</div>
+                        <div class="appointment-badge">Dr.lina Sharma - 4:15 PM</div>
+                    </div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">10
+                        <div class="appointment-badge">Dr.Sumit Roy - 10:00 AM</div>
+                    </div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <!-- More days... -->
+                </div>
+            </div>
+            
+            <div class="appointment-sidebar">
+                <h3>Today's Appointments</h3>
+                <div class="appointment-list">
+                    <div class="appointment-item">
+                        <h4>Suman Yadav - Follow-up</h4>
+                        <div class="appointment-time">2:30 PM - 3:00 PM</div>
+                        <div>Dr.Suman Yadav  - Room 205</div>
+                    </div>
+                    <div class="appointment-item">
+                        <h4>Jane Smith - Consultation</h4>
+                        <div class="appointment-time">4:15 PM - 4:45 PM</div>
+                        <div>Dr.Lina Sharma - Room 312</div>
+                    </div>
+                    <!-- More appointments... -->
+                </div>
+                <div class="appointment-list">
+                    <div class="appointment-item">
+                        <h4>Suman Yadav - Follow-up</h4>
+                        <div class="appointment-time">2:30 PM - 3:00 PM</div>
+                        <div>Dr.Suman Yadav  - Room 205</div>
+                    </div>
+                    <div class="appointment-item">
+                        <h4>Jane Smith - Consultation</h4>
+                        <div class="appointment-time">4:15 PM - 4:45 PM</div>
+                        <div>Dr.Lina Sharma - Room 312</div>
+                    </div>
+                    <!-- More appointments... -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer same as patients.html -->
+
+    <script>
+        // Same authentication and logout functions as patients.html
+        
+        function openAppointmentForm() {
+            alert('Open appointment scheduling form');
+        }
+    </script>
+</body>
+</html>
